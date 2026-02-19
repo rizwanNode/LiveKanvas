@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Header from './Header';
 
 /* ─────────────────────────────────────────────
    KANVAS PAGE — Responsive
@@ -149,7 +148,6 @@ export default function KanvasPage() {
         src={noiseTexture}
       />
 
-      <Header transparent />
 
       {/* ════════════════════════════════════════
           HERO
@@ -389,42 +387,6 @@ export default function KanvasPage() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════
-          FOOTER
-          ════════════════════════════════════════ */}
-      <footer className="relative z-10 pt-6 pb-8 md:pb-12">
-        <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="w-full h-[1px] bg-white/25 mb-6 md:mb-10" />
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-0">
-            <div className="flex-shrink-0 lg:mr-10">
-              <img className="w-[50px] md:w-[70px] lg:w-[89px] h-auto object-cover" alt="Live Kanvas" src={logo12} />
-            </div>
-            <nav className="flex flex-wrap gap-x-5 gap-y-2 md:gap-x-8 flex-1">
-              {[{ text: 'About Us' }, { text: 'Creators' }, { text: 'Contact Us' }, { text: 'Blog' }, { text: 'Help Center' }].map((l) => (
-                <a key={l.text} href={`#${l.text.toLowerCase().replace(/\s+/g, '-')}`} className="font-[family-name:var(--font-lato)] font-semibold text-white text-sm md:text-base lg:text-xl hover:text-[#e2283f] transition-colors">{l.text}</a>
-              ))}
-            </nav>
-            <div className="flex flex-col items-start lg:items-end gap-1.5">
-              <p className="font-[family-name:var(--font-roboto)] text-white text-sm md:text-base lg:text-xl">Follow us on</p>
-              <div className="flex items-center gap-3">
-                {[{ icon: facebookIcon, n: 'Facebook' }, { icon: xIcon, n: 'X' }, { icon: instagramIcon, n: 'Instagram' }, { icon: linkedinIcon, n: 'LinkedIn' }].map((s) => (
-                  <a key={s.n} href="#" className="hover:opacity-80 transition-opacity">
-                    <img className="w-[28px] h-[28px] md:w-[36px] md:h-[36px] lg:w-[48px] lg:h-[48px] object-contain" alt={s.n} src={s.icon} />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between mt-5 md:mt-8 gap-3">
-            <p className="font-[family-name:var(--font-lato)] font-medium text-[#ffffff7a] text-xs md:text-sm lg:text-base">2025 LiveKanvas. All rights reserved.</p>
-            <nav className="flex flex-wrap gap-x-4 md:gap-x-6 gap-y-1">
-              {['Privacy Statement', 'Terms of Service', 'Cookies Policy', 'Cookies Preferences'].map((t) => (
-                <a key={t} href={`#${t.toLowerCase().replace(/\s+/g, '-')}`} className="font-[family-name:var(--font-lato)] font-medium text-[#ffffff7a] text-xs md:text-sm lg:text-base underline hover:text-white transition-colors">{t}</a>
-              ))}
-            </nav>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

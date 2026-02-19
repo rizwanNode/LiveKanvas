@@ -1,5 +1,5 @@
 import './globals.css';
-import StoryblokProvider from '@/components/StoryblokProvider';
+import StoryblokProvider from '@/components/common/StoryblokProvider';
 
 export const metadata = {
   title: 'Live Kanvas - Unite, Create, Inspire',

@@ -1,18 +1,18 @@
 import Page from '@/components/Page';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import AboutSection from '@/components/AboutSection';
-import CreatorsSection from '@/components/CreatorsSection';
-import PartnersSection from '@/components/PartnersSection';
-import ContactSection from '@/components/ContactSection';
-import PreOrderSection from '@/components/PreOrderSection';
-import HelpCenterSection from '@/components/HelpCenterSection';
-import FaqSection from '@/components/FaqSection';
-import NewsCenterSection from '@/components/NewsCenterSection';
-import NewsArticleCard from '@/components/NewsArticleCard';
-import Grid from '@/components/Grid';
-import Teaser from '@/components/Teaser';
-import Feature from '@/components/Feature';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import AboutSection from '@/components/sections/AboutSection';
+import CreatorsSection from '@/components/sections/CreatorsSection';
+import PartnersSection from '@/components/sections/PartnersSection';
+import ContactSection from '@/components/sections/ContactSection';
+import PreOrderSection from '@/components/sections/PreOrderSection';
+import HelpCenterSection from '@/components/sections/HelpCenterSection';
+import FaqSection from '@/components/sections/FaqSection';
+import NewsCenterSection from '@/components/sections/NewsCenterSection';
+import NewsArticleCard from '@/components/sections/NewsArticleCard';
+import Grid from '@/components/common/Grid';
+import Teaser from '@/components/common/Teaser';
+import Feature from '@/components/common/Feature';
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 
 // Fix localStorage for server-side rendering (Storyblok SDK requires it)
