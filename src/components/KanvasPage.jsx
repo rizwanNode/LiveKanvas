@@ -73,9 +73,9 @@ const creatorFeatures = [
 ];
 
 const viewerFeatures = [
-  { id: 1, title: 'Exclusive Content', desc: 'Be part of the action! Chat, comment, and co-create with your favorite creators while connecting with fellow fans who share your passions.', image: shortShadow1, reverse: true },
-  { id: 2, title: 'Never Miss A Stream', desc: 'Stay in the know. Get instant notifications about live events and performances from your favorite creators, so you never miss a moment.', image: shortShadow3, reverse: false },
-  { id: 3, title: 'Short & Snappy Klipz', desc: 'Discover engaging short trailers tailored to captivate and entertain, making it easy to find your next favorite creator or content.', image: floatingShadow1, reverse: true },
+  { id: 1, title: 'Exclusive Content', desc: 'Be part of the action! Chat, comment, and co-create with your favorite creators while connecting with fellow fans who share your passions.', image: shortShadow, reverse: true },
+  { id: 2, title: 'Never Miss A Stream', desc: 'Stay in the know. Get instant notifications about live events and performances from your favorite creators, so you never miss a moment.', image: shortShadow2, reverse: false },
+  { id: 3, title: 'Short & Snappy Klipz', desc: 'Discover engaging short trailers tailored to captivate and entertain, making it easy to find your next favorite creator or content.', image: floatingShadow, reverse: true },
 ];
 
 function FeatureRow({ title, desc, image, reverse, textPt = 120, descSemibold = false }) {
