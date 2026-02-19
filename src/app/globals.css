@@ -1,0 +1,199 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Colors - from Figma design */
+  --color-lk-dark: #181818;
+  --color-lk-dark-alt: #191818;
+  --color-lk-dark-deep: #171717;
+  --color-lk-red: #E2283F;
+  --color-lk-red-dark: #D00003;
+  --color-lk-red-muted: rgba(226, 40, 63, 0.32);
+  --color-lk-red-glow: rgba(226, 40, 63, 0.18);
+  --color-lk-white: #FFFFFF;
+  --color-lk-white-80: rgba(255, 255, 255, 0.80);
+  --color-lk-white-65: rgba(255, 255, 255, 0.65);
+  --color-lk-white-48: rgba(255, 255, 255, 0.48);
+  --color-lk-white-40: rgba(255, 255, 255, 0.40);
+  --color-lk-gray: #D9D9D9;
+  --color-lk-gray-40: rgba(217, 217, 217, 0.40);
+  --color-lk-gray-25: rgba(217, 217, 217, 0.25);
+  --color-lk-gray-15: rgba(217, 217, 217, 0.15);
+  --color-lk-light: #F0F0F0;
+  --color-lk-orange: #FF9811;
+  --color-lk-yellow: #FFDA44;
+  --color-lk-blue: #0052B4;
+  --color-lk-green: #6DA544;
+
+  /* Fonts */
+  --font-lato: 'Lato', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-lato);
+  background-color: var(--color-lk-dark);
+  color: var(--color-lk-white);
+  overflow-x: hidden;
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* Red glow effects */
+.glow-top-left {
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(226, 40, 63, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-top-right {
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(226, 40, 63, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-bottom {
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(226, 40, 63, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Red gradient card backgrounds */
+.red-gradient-card {
+  background: linear-gradient(180deg, rgba(226, 40, 63, 0.32) 0%, rgba(24, 24, 24, 1) 100%);
+  border: 1px solid rgba(217, 217, 217, 0.15);
+  border-radius: 16px;
+}
+
+.red-gradient-section {
+  background: linear-gradient(180deg, var(--color-lk-red) 0%, var(--color-lk-dark) 100%);
+}
+
+/* Button styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  background-color: var(--color-lk-red);
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-lk-red-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  background-color: transparent;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(217, 217, 217, 0.4);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  border-color: var(--color-lk-red);
+  color: var(--color-lk-red);
+}
+
+/* Section spacing */
+.section-spacing {
+  padding: 80px 0;
+}
+
+/* Container */
+.container-lk {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-lk-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(217, 217, 217, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 217, 217, 0.4);
+}
+
+/* Globe horizontal rotation — translateX strip for seamless loop */
+@keyframes globe-spin {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-globe-spin {
+  animation: globe-spin 30s linear infinite;
+}
+
+/* Downward light flash / bounce glow on the decorative arrow */
+@keyframes bounce-glow {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.5;
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 1;
+    filter: drop-shadow(0 4px 12px rgba(226, 40, 63, 0.6));
+  }
+}
+
+.animate-bounce-glow {
+  animation: bounce-glow 2s ease-in-out infinite;
+}
