@@ -66,33 +66,37 @@ const globeFlags = [
 ];
 
 const creatorFeatures = [
-  { id: 1, title: 'Profile Dashboard', desc: 'Take control of your creative journey. Manage your content, track growth, analyze performance, and interact with fans—all in one place.', image: `${IMG}/iPhone%2012%20mockup%20Profile%20Dashboard.png`, reverse: true, textPt: 150, descSemibold: false },
-  { id: 2, title: 'Monetization Opportunities', desc: 'Turn your passion into income with options like Live Bucks, donations, and content-based earnings.', image: `${IMG}/iPhone%2012%20mockup%20Monetization.png`, reverse: false, textPt: 30, descSemibold: true },
-  { id: 3, title: 'Live Streaming Made Easy', desc: 'Go live, engage with your audience, and build meaningful, real-time connections.', image: shortShadow, reverse: true, textPt: 110, descSemibold: false },
+  { id: 1, title: 'Profile Dashboard', desc: 'Take control of your creative journey. Manage your content, track growth, analyze performance, and interact with fans—all in one place.', image: `${IMG}/iPhone%2012%20mockup%20Profile%20Dashboard.png`, reverse: true, textPt: 150, descSemibold: false, rotate: true },
+  { id: 2, title: 'Monetization Opportunities', desc: 'Turn your passion into income with options like Live Bucks, donations, and content-based earnings.', image: `${IMG}/iPhone%2012%20mockup%20Monetization.png`, reverse: false, textPt: 30, descSemibold: true, rotate: true },
+  { id: 3, title: 'Live Streaming Made Easy', desc: 'Go live, engage with your audience, and build meaningful, real-time connections.', image: floatingShadow2, reverse: true, textPt: 110, descSemibold: false },
 ];
 
 const viewerFeatures = [
-  { id: 1, title: 'Exclusive Content', desc: 'Be part of the action! Chat, comment, and co-create with your favorite creators while connecting with fellow fans who share your passions.', image: shortShadow1, reverse: true },
-  { id: 2, title: 'Never Miss A Stream', desc: 'Stay in the know. Get instant notifications about live events and performances from your favorite creators, so you never miss a moment.', image: shortShadow3, reverse: false },
-  { id: 3, title: 'Short & Snappy Klipz', desc: 'Discover engaging short trailers tailored to captivate and entertain, making it easy to find your next favorite creator or content.', image: floatingShadow1, reverse: true },
+  { id: 1, title: 'Exclusive Content', desc: 'Be part of the action! Chat, comment, and co-create with your favorite creators while connecting with fellow fans who share your passions.', image: shortShadow, reverse: false, largerImage: true, smallerText: true, textPt: 40 },
+  { id: 2, title: 'Never Miss A Stream', desc: 'Stay in the know. Get instant notifications about live events and performances from your favorite creators, so you never miss a moment.', image: shortShadow2, reverse: true, largerImage: true, smallerText: true, textPt: 40 },
+  { id: 3, title: 'Short & Snappy Klipz', desc: 'Discover engaging short trailers tailored to captivate and entertain, making it easy to find your next favorite creator or content.', image: floatingShadow, reverse: false, largerImage: true, smallerText: true, textPt: 40 },
 ];
 
-function FeatureRow({ title, desc, image, reverse, textPt = 120, descSemibold = false }) {
+function FeatureRow({ title, desc, image, reverse, textPt = 120, descSemibold = false, largerImage = false, smallerText = false, rotate = false }) {
+  const rotationClass = rotate 
+    ? (reverse ? 'rotate-[15deg]' : '-rotate-[15deg]') 
+    : 'rotate-0';
+
   return (
-    <div className={`flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center lg:items-start gap-6 md:gap-10 lg:gap-16`}>
+    <div className={`flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center lg:items-start gap-6 md:gap-10 lg:gap-0`}>
       <div className="flex-shrink-0">
         <img
           src={image}
           alt={title}
-          className={`w-[200px] md:w-[280px] lg:w-[380px] drop-shadow-2xl ${reverse ? 'rotate-[15deg]' : '-rotate-[14deg]'}`}
+          className={`${largerImage ? 'w-[250px] md:w-[350px] lg:w-[640px]' : 'w-[200px] md:w-[280px] lg:w-[500px]'} drop-shadow-2xl ${rotationClass}`}
         />
       </div>
       <div className="flex-1 text-center lg:text-left">
         <div className="hidden lg:block" style={{ height: `${textPt}px` }} />
-        <h3 className="font-[family-name:var(--font-lato)] font-bold text-white text-xl md:text-2xl lg:text-[32px] lg:leading-[1.3] mb-2 md:mb-3">
+        <h3 className={`font-[family-name:var(--font-lato)] font-bold text-white ${smallerText ? 'text-lg md:text-xl lg:text-[28px]' : 'text-xl md:text-2xl lg:text-[32px]'} lg:leading-[1.3] mb-2 md:mb-3`}>
           {title}
         </h3>
-        <p className={`font-[family-name:var(--font-lato)] ${descSemibold ? 'font-semibold' : 'font-normal'} text-white text-sm md:text-lg lg:text-[28px] lg:leading-[1.5]`}>
+        <p className={`font-[family-name:var(--font-lato)] ${descSemibold ? 'font-semibold' : 'font-normal'} text-white ${smallerText ? 'text-sm md:text-base lg:text-[22px]' : 'text-sm md:text-lg lg:text-[28px]'} lg:leading-[1.5]`}>
           {desc}
         </p>
       </div>
