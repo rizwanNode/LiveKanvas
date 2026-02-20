@@ -31,7 +31,7 @@ export default function FaqPage() {
   ];
 
   return (
-    <div className="bg-[#181818] min-h-screen relative overflow-hidden flex flex-col">
+    <div className="bg-[#181818] min-h-screen relative overflow-hidden flex flex-col lg:pb-54 pb-120 pt-0 lg:pt-10 ">
       {/* ── Background glow effects ── */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
         <div className="w-[1000px] h-[1000px] bg-red-700 blur-[220px] opacity-60 rounded-full"></div>
