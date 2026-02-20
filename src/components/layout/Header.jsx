@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { storyblokEditable } from '@storyblok/react/rsc';
 
 const KANVAS_IMG = '/images/kanvas';
 const DEFAULT_KANVAS_LOGO = `${KANVAS_IMG}/2025_Live%20Kanvas%20Cir%20SQ-06%209.png`;
 const MENU_ICON = `${KANVAS_IMG}/Menu.png`;
+
 const SOCIAL_ICONS = [
   { icon: `${KANVAS_IMG}/Facebook.png`, name: 'Facebook', href: '#' },
   { icon: `${KANVAS_IMG}/X.png`, name: 'X', href: '#' },
@@ -25,24 +26,21 @@ const NAV_LINKS = [
   { label: 'News Center', href: '/news-center' },
 ];
 
-const Header = ({ blok, transparent = false }) => {
+const Header = ({ blok, transparent = true }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Handle scroll and body overflow
-  if (typeof window !== 'undefined') {
-    // Scroll listener
-    window.onscroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+  // Handle scroll
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    // Body scroll lock
-    if (menuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
+  }, [menuOpen]);
 
   const logoSrc = blok?.logo?.filename || DEFAULT_KANVAS_LOGO;
 
@@ -76,7 +74,7 @@ const Header = ({ blok, transparent = false }) => {
             >
               Home
             </Link>
-         
+
             <Link
               href="/sign-in"
               className="hidden md:inline-flex items-center justify-center bg-[#e2283f] rounded-[20px] shadow-[0px_4px_10px_rgba(226,40,63,0.3)] px-4 md:px-5 lg:px-6 py-1.5 md:py-2 font-[family-name:var(--font-lato)] font-bold text-white text-base md:text-lg hover:bg-[#c01f37] transition-all hover:scale-105 active:scale-95"

@@ -32,24 +32,15 @@ const pages = {
 export default function StaticPage({ slug }) {
   const PageComponent = pages[slug] || NotFoundPage;
 
-  // Pages that should have a transparent "merged" header by default
-  const isTransparent = [
-    'home', 
-    'about-us', 
-    'contact-us', 
-    'faq', 
-    'help-center', 
-    'creators', 
-    'partners'
-  ].includes(slug);
-
   return (
-    <>
-      <Header transparent={isTransparent} />
-      <main className="min-h-screen">
+    <div className="relative min-h-screen">
+      <Header transparent={true} />
+      <main className="w-full">
         <PageComponent />
       </main>
-      <Footer />
-    </>
+      <div className="absolute bottom-0 w-full z-10">
+        <Footer />
+      </div>
+    </div>
   );
 }
