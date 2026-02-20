@@ -282,6 +282,7 @@ export default function KanvasPage() {
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="text-center mb-8 md:mb-14">
             <p className="font-[family-name:var(--font-lato)] font-semibold text-white text-lg md:text-2xl lg:text-[48px] lg:leading-[1.2] mb-1 md:mb-2 lg:mb-[29px]">Creator Features</p>
+            
             <h2 className="font-[family-name:var(--font-lato)] text-white text-xl md:text-3xl lg:text-[64px] lg:leading-[1.1] mb-5 md:mb-8 lg:mb-[75px] lg:max-w-[751px] mx-auto" style={{ textShadow: '0px 4px 4px rgba(0,0,0,0.25)' }}>
               <span className="font-bold">Authentic Stories</span><span className="font-normal">, Real People</span>
             </h2>
@@ -371,6 +372,7 @@ export default function KanvasPage() {
                   />
                   <label htmlFor="kanvas-agree-comms" className="font-[family-name:var(--font-lato)] text-white text-xs md:text-sm lg:text-base">
                     I agree to receive other communications from Live Kanvas.
+
                   </label>
                 </div>
                 <button type="submit" className="bg-[#e2283f] rounded-[20px] shadow-[0px_4px_4px_#00000040] px-6 md:px-8 py-2.5 md:py-3 hover:bg-[#c01f37] transition-colors">
