@@ -2,6 +2,7 @@ import { storyblokEditable } from '@storyblok/react/rsc';
 import Link from 'next/link';
 
 const AboutSection = ({ blok }) => {
+  
   return (
     <section
       {...storyblokEditable(blok)}
